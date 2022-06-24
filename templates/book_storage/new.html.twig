@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New BookStorage{% endblock %}
+
+{% block body %}
+    <h1>Create new BookStorage</h1>
+
+    {{ include('book_storage/_form.html.twig') }}
+
+    <a href="{{ path('app_book_storage_index') }}">back to list</a>
+{% endblock %}

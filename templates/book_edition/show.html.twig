@@ -1,0 +1,30 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}BookEdition{% endblock %}
+
+{% block body %}
+    <h1>BookEdition</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ book_edition.id }}</td>
+            </tr>
+            <tr>
+                <th>YearEdition</th>
+                <td>{{ book_edition.yearEdition }}</td>
+            </tr>
+            <tr>
+                <th>Part</th>
+                <td>{{ book_edition.part }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_book_edition_index') }}">back to list</a>
+
+    <a href="{{ path('app_book_edition_edit', {'id': book_edition.id}) }}">edit</a>
+
+    {{ include('book_edition/_delete_form.html.twig') }}
+{% endblock %}

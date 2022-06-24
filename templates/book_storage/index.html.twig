@@ -1,0 +1,43 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}BookStorage index{% endblock %}
+
+{% block body %}
+    <h1>BookStorage index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Cabinet</th>
+                <th>Closet</th>
+                <th>Shelf</th>
+                <th>Date</th>
+                <th>Link</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for book_storage in book_storages %}
+            <tr>
+                <td>{{ book_storage.id }}</td>
+                <td>{{ book_storage.cabinet }}</td>
+                <td>{{ book_storage.closet }}</td>
+                <td>{{ book_storage.shelf }}</td>
+                <td>{{ book_storage.date ? book_storage.date|date('Y-m-d') : '' }}</td>
+                <td>{{ book_storage.link }}</td>
+                <td>
+                    <a href="{{ path('app_book_storage_show', {'id': book_storage.id}) }}">show</a>
+                    <a href="{{ path('app_book_storage_edit', {'id': book_storage.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="7">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_book_storage_new') }}">Create new</a>
+{% endblock %}

@@ -1,0 +1,42 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}BookStorage{% endblock %}
+
+{% block body %}
+    <h1>BookStorage</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ book_storage.id }}</td>
+            </tr>
+            <tr>
+                <th>Cabinet</th>
+                <td>{{ book_storage.cabinet }}</td>
+            </tr>
+            <tr>
+                <th>Closet</th>
+                <td>{{ book_storage.closet }}</td>
+            </tr>
+            <tr>
+                <th>Shelf</th>
+                <td>{{ book_storage.shelf }}</td>
+            </tr>
+            <tr>
+                <th>Date</th>
+                <td>{{ book_storage.date ? book_storage.date|date('Y-m-d') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Link</th>
+                <td>{{ book_storage.link }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_book_storage_index') }}">back to list</a>
+
+    <a href="{{ path('app_book_storage_edit', {'id': book_storage.id}) }}">edit</a>
+
+    {{ include('book_storage/_delete_form.html.twig') }}
+{% endblock %}

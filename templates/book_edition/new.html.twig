@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New BookEdition{% endblock %}
+
+{% block body %}
+    <h1>Create new BookEdition</h1>
+
+    {{ include('book_edition/_form.html.twig') }}
+
+    <a href="{{ path('app_book_edition_index') }}">back to list</a>
+{% endblock %}
